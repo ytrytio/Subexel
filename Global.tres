@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://t8gkge5onl5f"]
+
+[ext_resource type="FontFile" uid="uid://cci3jfyo33ag8" path="res://assets/fonts/Quantico-Bold.ttf" id="1_npdkq"]
+
+[resource]
+resource_name = "Global"
+font = ExtResource("1_npdkq")
+font_size = 100
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 1)
