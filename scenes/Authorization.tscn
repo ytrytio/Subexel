@@ -7,7 +7,7 @@
 
 [sub_resource type="Theme" id="Theme_tanj0"]
 
-[node name="Main" type="Control"]
+[node name="Authorization" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,18 +27,41 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.176471, 0.176471, 0.176471, 1)
 
-[node name="LoginContainer" type="VBoxContainer" parent="Background"]
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -270.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 300
+alignment = 1
+
+[node name="Title" type="Label" parent="MainContainer"]
+layout_mode = 2
+text = "SUBEXEL"
+label_settings = ExtResource("2_5ewy8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MainContainer"]
+layout_mode = 2
+
+[node name="LoginContainer" type="VBoxContainer" parent="MainContainer/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -5.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 51
 alignment = 1
 
-[node name="InputContainer" type="VBoxContainer" parent="Background/LoginContainer"]
+[node name="InputContainer" type="VBoxContainer" parent="MainContainer/Control/LoginContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -46,24 +69,24 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="NicknameInput" type="LineEdit" parent="Background/LoginContainer/InputContainer"]
+[node name="NicknameInput" type="LineEdit" parent="MainContainer/Control/LoginContainer/InputContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = SubResource("Theme_tanj0")
 placeholder_text = "Nickname"
 
-[node name="PasswordInput" type="LineEdit" parent="Background/LoginContainer/InputContainer"]
+[node name="PasswordInput" type="LineEdit" parent="MainContainer/Control/LoginContainer/InputContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = SubResource("Theme_tanj0")
 placeholder_text = "Password"
 secret = true
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="Background/LoginContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MainContainer/Control/LoginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="Background/LoginContainer/ButtonsContainer"]
+[node name="Button" type="Button" parent="MainContainer/Control/LoginContainer/ButtonsContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
@@ -72,18 +95,20 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 text = "Log In"
 
-[node name="RegisterContainer" type="VBoxContainer" parent="Background"]
+[node name="RegisterContainer" type="VBoxContainer" parent="MainContainer/Control"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -45.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 51
 alignment = 1
 
-[node name="InputContainer" type="VBoxContainer" parent="Background/RegisterContainer"]
+[node name="InputContainer" type="VBoxContainer" parent="MainContainer/Control/RegisterContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -91,13 +116,13 @@ size_flags_vertical = 4
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="NicknameInput" type="LineEdit" parent="Background/RegisterContainer/InputContainer"]
+[node name="NicknameInput" type="LineEdit" parent="MainContainer/Control/RegisterContainer/InputContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = SubResource("Theme_tanj0")
 placeholder_text = "Nickname"
 
-[node name="EMailInput" type="LineEdit" parent="Background/RegisterContainer/InputContainer"]
+[node name="EMailInput" type="LineEdit" parent="MainContainer/Control/RegisterContainer/InputContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = SubResource("Theme_tanj0")
@@ -105,25 +130,25 @@ placeholder_text = "EMail"
 virtual_keyboard_type = 5
 structured_text_bidi_override = 3
 
-[node name="PasswordInput" type="LineEdit" parent="Background/RegisterContainer/InputContainer"]
+[node name="PasswordInput" type="LineEdit" parent="MainContainer/Control/RegisterContainer/InputContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = SubResource("Theme_tanj0")
 placeholder_text = "Password"
 secret = true
 
-[node name="ConfirmPasswordInput" type="LineEdit" parent="Background/RegisterContainer/InputContainer"]
+[node name="ConfirmPasswordInput" type="LineEdit" parent="MainContainer/Control/RegisterContainer/InputContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 theme = SubResource("Theme_tanj0")
 placeholder_text = "Confirm password"
 secret = true
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="Background/RegisterContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MainContainer/Control/RegisterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="Background/RegisterContainer/ButtonsContainer"]
+[node name="Button" type="Button" parent="MainContainer/Control/RegisterContainer/ButtonsContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
@@ -132,7 +157,7 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 text = "Sign Up"
 
-[node name="StartContainer" type="VBoxContainer" parent="Background"]
+[node name="StartContainer" type="VBoxContainer" parent="MainContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,11 +167,11 @@ grow_vertical = 2
 theme_override_constants/separation = 51
 alignment = 1
 
-[node name="ButtonsContainer" type="VBoxContainer" parent="Background/StartContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="MainContainer/Control/StartContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="LoginButton" type="Button" parent="Background/StartContainer/ButtonsContainer"]
+[node name="LoginButton" type="Button" parent="MainContainer/Control/StartContainer/ButtonsContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
@@ -157,7 +182,7 @@ text = "Log In
 "
 script = ExtResource("2_hquxi")
 
-[node name="RegisterButton" type="Button" parent="Background/StartContainer/ButtonsContainer"]
+[node name="RegisterButton" type="Button" parent="MainContainer/Control/StartContainer/ButtonsContainer"]
 auto_translate_mode = 1
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
@@ -166,13 +191,3 @@ size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 text = "Sign Up"
 script = ExtResource("3_l0jmv")
-
-[node name="Title" type="Label" parent="Background"]
-layout_mode = 2
-offset_top = 128.0
-offset_right = 1920.0
-offset_bottom = 272.0
-text = "SUBEXEL"
-label_settings = ExtResource("2_5ewy8")
-horizontal_alignment = 1
-vertical_alignment = 1
